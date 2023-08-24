@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="Style.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stoppeklokke</title>
+</head>
+
+<body>
+    <div class="stopWatchBody">
+        <Button class="stopWatchButton" onclick="startTimer()">Start</Button>
+        <button class="stopWatchButton" onclick="pauseTimer()">Interval</button>
+        <button class="stopWatchButton" onclick="stopAll()">Reset</button>
+
+        <div id="app" class="timeDisplay"></div>Round Times:<div id="lastRound" class="roundsList"> </div> <br>
+    </div>
+
+    <script>
+        const app = document.getElementById('app');
+        const roundTime = document.getElementById('lastRound');
+        let seconds = 0;
+        var timerRunning = false;
+
+
+
+
+        function startTimer() {
+            if (!timerRunning) {  // !timerRunning er det samme som == false.   ! er det samme som == false
+                setInterval(countSeconds, 1000);
+                timerRunning = true
+            }
+        }
+
+        function countSeconds() {
+            app.innerHTML = seconds;
+            seconds++;
+        }
+
+        function pauseTimer() {
+            roundTime.innerHTML += `<li>${seconds - 1} selunder</li>`;
+            clearInterval(timer);
+            secounds = 0;
+        }
+
+        function stopAll() {
+            location.reload()
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
